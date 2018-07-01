@@ -1,15 +1,24 @@
-//
-//  main.c
-//  测试换行
-//
-//  Created by 朱博宇 on 2018/7/1.
-//  Copyright © 2018年 朱博宇. All rights reserved.
-//
-
 #include <stdio.h>
+#include <stdlib.h>
 
-int main(int argc, const char * argv[]) {
-    // insert code here...
-    printf("Hello, World!\n");
+int main()
+{
+    FILE *rFile;
+    
+    char num[20]="";
+    char let[20]="";
+    
+    if((rFile=fopen("/Users/s20171105115/Desktop/test.txt","r+"))==NULL)
+    {
+        printf("\nFailed to open the data file.\n");
+        exit(1);
+    }
+    
+    while(fscanf(rFile,"%s %s",num,let)!=EOF)
+    {
+        printf("%s %s\n",num,let);
+    }
+    
+    
     return 0;
 }
